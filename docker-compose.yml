@@ -1,0 +1,11 @@
+services:
+  twitch-openrouter-bot:
+    image: node:20-alpine
+    container_name: twitch-openrouter-bot
+    working_dir: /app
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
+    command: sh -lc "npm install && npm start"
+    restart: unless-stopped
